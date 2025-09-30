@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --color-background: #FAFBFC; /* gray-50 */
+    --color-foreground: #1A202C; /* gray-900 */
+    --color-border: #E2E8F0; /* gray-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #20B2AA; /* teal-500 */
+    
+    /* Card Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1A202C; /* gray-900 */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1A202C; /* gray-900 */
+    
+    /* Muted Colors */
+    --color-muted: #F7FAFC; /* gray-100 */
+    --color-muted-foreground: #4A5568; /* gray-600 */
+    
+    /* Primary Colors */
+    --color-primary: #20B2AA; /* teal-500 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #4A90E2; /* blue-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Destructive Colors */
+    --color-destructive: #E53E3E; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #00D4AA; /* emerald-400 */
+    --color-accent-foreground: #1A202C; /* gray-900 */
+    
+    /* Success Colors */
+    --color-success: #48BB78; /* green-400 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    /* Warning Colors */
+    --color-warning: #ED8936; /* orange-400 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    /* Error Colors */
+    --color-error: #E53E3E; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* Brand Specific Colors */
+    --color-medical-trust: #20B2AA; /* teal-500 */
+    --color-ai-intelligence: #4A90E2; /* blue-500 */
+    --color-health-success: #00D4AA; /* emerald-400 */
+    --color-conversion-accent: #E67E22; /* orange-500 */
+    --color-text-primary: #1A202C; /* gray-900 */
+    --color-text-secondary: #4A5568; /* gray-600 */
+    --color-surface: #FFFFFF; /* white */
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Medical Intelligence Minimalism Components */
+  .medical-card {
+    @apply bg-card text-card-foreground rounded-xl border border-border shadow-sm;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .health-pulse {
+    animation: healthPulse 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  }
+  
+  .ai-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-surface) 100%);
+  }
+  
+  .predictive-flow {
+    animation: predictiveFlow 3s ease-in-out infinite;
+  }
+  
+  .organic-shape {
+    border-radius: 40% 60% 70% 30%;
+  }
+  
+  .trust-elevation {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .conversion-hover {
+    transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .conversion-hover:hover {
+    transform: translateY(-2px) scale(1.02);
+    filter: drop-shadow(0 8px 32px rgba(32, 178, 170, 0.3));
+  }
+  
+  .medical-focus {
+    transition: all 200ms ease-in-out;
+  }
+  
+  .medical-focus:hover {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  /* Spacing based on 8px grid with golden ratio scaling */
+  .space-medical-xs { @apply space-y-2; } /* 8px */
+  .space-medical-sm { @apply space-y-3; } /* 13px */
+  .space-medical-md { @apply space-y-5; } /* 21px */
+  .space-medical-lg { @apply space-y-8; } /* 34px */
+  .space-medical-xl { @apply space-y-14; } /* 55px */
+  
+  /* Medical-grade shadows */
+  .shadow-medical {
+    box-shadow: 0 8px 32px rgba(32, 178, 170, 0.15);
+  }
+  
+  .shadow-trust {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Brand-specific text colors */
+  .text-medical-trust { color: var(--color-medical-trust); }
+  .text-ai-intelligence { color: var(--color-ai-intelligence); }
+  .text-health-success { color: var(--color-health-success); }
+  .text-conversion-accent { color: var(--color-conversion-accent); }
+}
+
+/* Keyframe Animations */
+@keyframes healthPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes predictiveFlow {
+  0% {
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 50 50;
+    stroke-dashoffset: -25;
+  }
+  100% {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  h1 { font-size: 1.875rem; } /* 30px */
+  h2 { font-size: 1.5rem; }   /* 24px */
+  h3 { font-size: 1.25rem; }  /* 20px */
+}
+
+@media (min-width: 769px) {
+  h1 { font-size: 3rem; }     /* 48px */
+  h2 { font-size: 2.25rem; }  /* 36px */
+  h3 { font-size: 1.875rem; } /* 30px */
+}
